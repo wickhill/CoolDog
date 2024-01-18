@@ -74,3 +74,25 @@ body {
 #boneBtn:hover {
   background-color: rgb(214, 211, 211);
 }
+
+#startNewGame {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 400px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+}
+
+#letsBegin {
+  background-color: rgb(38, 77, 205);
+  color: hsl(167, 86%, 74%);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+  border-radius: 15px;
+  cursor: pointer;
+}
