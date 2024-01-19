@@ -1,19 +1,44 @@
 // CoolDogGumBone aka 'Simon' bulk framework:
 
 function initiateGame() {
-
-  document.querySelectorAll(".letsBegin").forEach(function (button) {
-    button.addEventListener("click", function () {
-      //Placeholder for Game / Button Logic...
-    });
+  document.getElementById("letsBegin").addEventListener("click", function () {
+    cpuSelects();
   });
+}
 
+function cpuSelects(cpuNewMove) {
   const buttonChoices = ["cool", "dog", "gum", "bone"];
   const compButtonArray = [];
-  const playerButtonArray = [];
+  const randomIndex = Math.floor(Math.random() * buttonChoices.length);
+  const randomChoice = buttonChoices[randomIndex];
+  compButtonArray.push(randomChoice);
+  console.log(compButtonArray);
 
-  for (let i = 0; i < buttonChoices.length; i++) {
-    const randomNum = Math.floor(Math.random) * buttonChoices.length + 1;
-    compButtonArray.push(randomNum);
+  btnActivated(randomChoice + "Btn", true);
+
+  setTimeout(function () {
+    btnActivated(randomChoice + "Btn", false);
+  }, 3000);
+}
+
+function btnActivated(buttonId, isActive) {
+  const buttonBright = document.getElementById(buttonId);
+  const activeClass = buttonId + "Active";
+
+  if (isActive) {
+    buttonBright.classList.add(activeClass);
+  } else {
+    buttonBright.classList.remove(activeClass);
   }
+}
+
+initiateGame();
+cpuSelects();
+btnActivated();
+giveHint();
+
+function giveHint() {
+  document.getElementById("hintBtn").addEventListener("click", function () {
+    console.log(compButtonArray);
+  });
 }
