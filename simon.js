@@ -6,19 +6,21 @@ function initiateGame() {
   });
 }
 
-function cpuSelects(cpuNewMove) {
+let compButtonArray = [];
+
+function cpuSelects() {
   const buttonChoices = ["cool", "dog", "gum", "bone"];
-  const compButtonArray = [];
   const randomIndex = Math.floor(Math.random() * buttonChoices.length);
   const randomChoice = buttonChoices[randomIndex];
   compButtonArray.push(randomChoice);
   console.log(compButtonArray);
+  simpleResetBtn();
 
   btnActivated(randomChoice + "Btn", true);
 
   setTimeout(function () {
     btnActivated(randomChoice + "Btn", false);
-  }, 3000);
+  }, 1000);
 }
 
 function btnActivated(buttonClass, isActive) {
@@ -32,13 +34,20 @@ function btnActivated(buttonClass, isActive) {
   }
 }
 
+function simpleResetBtn() {
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    compButtonArray.splice(0, compButtonArray.length);
+  });
+}
+
 initiateGame();
 cpuSelects();
 btnActivated();
+simpleResetBtn();
 giveHint();
 
-function giveHint() {
-  document.getElementById("hintBtn").addEventListener("click", function () {
-    console.log(compButtonArray);
-  });
-}
+// function giveHint() {
+//   document.getElementById("hintBtn").addEventListener("click", function () {
+//     console.log(compButtonArray);
+//   });
+// }
