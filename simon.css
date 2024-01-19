@@ -130,3 +130,25 @@ body {
 #boneBtn.boneBtnActive {
   background-color: rgb(253, 251, 251);
 }
+
+#coolBtn.coolBtnCorrect,
+#dogBtn.dogBtnCorrect,
+#gumBtn.gumBtnCorrect,
+#boneBtn.boneBtnCorrect {
+  background-color: rgb(88, 234, 31);
+}
+
+#coolBtn.coolBtnIncorrect,
+#dogBtn.dogBtnIncorrect,
+#gumBtn.gumBtnIncorrect,
+#boneBtn.boneBtnIncorrect {
+  background-color: rgb(255, 16, 16);
+}
+
+.gameBtn.allButtonsCorrect {
+  background-color: rgb(88, 234, 31);
+}
+
+.gameBtn.allButtonsInorrect {
+  background-color: rgb(255, 16, 16);
+}

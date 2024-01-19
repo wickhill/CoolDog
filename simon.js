@@ -1,12 +1,16 @@
-// CoolDogGumBone aka 'Simon' bulk framework:
-
-function initiateGame() {
-  document.getElementById("letsBegin").addEventListener("click", function () {
-    cpuSelects();
-  });
-}
+// Startup Functions:
 
 let compButtonArray = [];
+
+function resetGame() {
+  compButtonArray = [];
+}
+
+function startGame() {
+  cpuSelects();
+}
+
+// Bulk Framework:
 
 function cpuSelects() {
   const buttonChoices = ["cool", "dog", "gum", "bone"];
@@ -14,7 +18,6 @@ function cpuSelects() {
   const randomChoice = buttonChoices[randomIndex];
   compButtonArray.push(randomChoice);
   console.log(compButtonArray);
-  simpleResetBtn();
 
   btnActivated(randomChoice + "Btn", true);
 
@@ -34,17 +37,23 @@ function btnActivated(buttonClass, isActive) {
   }
 }
 
-function simpleResetBtn() {
-  document.getElementById("resetBtn").addEventListener("click", function () {
-    compButtonArray.splice(0, compButtonArray.length);
-  });
-}
+// Event Listeners:
 
-initiateGame();
+document.getElementById("resetBtn").addEventListener("click", resetGame);
+
+document.getElementById("hintBtn").addEventListener("click", function () {
+  console.log(compButtonArray);
+});
+
+document.getElementById("letsBegin").addEventListener("click", startGame);
+
+// let gameStartInterval = setInterval(cpuSelects, 2000);
+
+startGame();
 cpuSelects();
 btnActivated();
-simpleResetBtn();
-giveHint();
+
+// clearInterval(cpuSelects);
 
 // function giveHint() {
 //   document.getElementById("hintBtn").addEventListener("click", function () {
