@@ -72,6 +72,7 @@ body {
 #coolBtn {
   background-color: rgb(9, 187, 232);
 }
+
 #coolBtn:hover {
   background-color: rgb(163, 228, 234);
 }
@@ -79,6 +80,7 @@ body {
 #dogBtn {
   background-color: rgb(52, 233, 32);
 }
+
 #dogBtn:hover {
   background-color: rgb(167, 246, 158);
 }
@@ -86,6 +88,7 @@ body {
 #gumBtn {
   background-color: rgb(239, 55, 230);
 }
+
 #gumBtn:hover {
   background-color: rgb(248, 173, 245);
 }
@@ -93,21 +96,22 @@ body {
 #boneBtn {
   background-color: rgb(136, 133, 133);
 }
+
 #boneBtn:hover {
   background-color: rgb(214, 211, 211);
 }
 
-.coolBtnActive {
-  background-color: rgb(200, 244, 248);
+#coolBtn.coolBtnActive {
+  background-color: rgb(253, 251, 251);
 }
-.dogBtnActive {
-  background-color: rgb(209, 250, 204);
-}
-
-.gumBtnActive {
-  background-color: rgb(254, 207, 253);
+#dogBtn.dogBtnActive {
+  background-color: rgb(253, 251, 251);
 }
 
-.boneBtnActive {
-  background-color: rgb(249, 247, 247);
+#gumBtn.gumBtnActive {
+  background-color: rgb(253, 251, 251);
+}
+
+#boneBtn.boneBtnActive {
+  background-color: rgb(253, 251, 251);
 }

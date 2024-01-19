@@ -21,9 +21,9 @@ function cpuSelects(cpuNewMove) {
   }, 3000);
 }
 
-function btnActivated(buttonId, isActive) {
-  const buttonBright = document.getElementById(buttonId);
-  const activeClass = buttonId + "Active";
+function btnActivated(buttonClass, isActive) {
+  const buttonBright = document.getElementById(buttonClass);
+  const activeClass = buttonClass + "Active";
 
   if (isActive) {
     buttonBright.classList.add(activeClass);
