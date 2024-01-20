@@ -3,6 +3,7 @@
 let compButtonArray = [];
 
 function startGame() {
+  compButtonArray = [];
   cpuSelects();
 }
 
@@ -32,6 +33,8 @@ function btnActivated(buttonId, isActive) {
     buttonBright.classList.remove(activeClass);
   }
 }
+
+// Function to indicate to player whether game will progress (buttons flash green) or end (buttons flash red).
 
 function correctOrIncorrect(buttonId, isCorrect) {
   const allButtonsBright = document.getElementById(buttonId);
