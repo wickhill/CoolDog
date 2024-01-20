@@ -66,8 +66,27 @@ function compareMoves() {
   }
   if (playerSelections.length === compButtonArray.length) {
     playerSelections = [];
-    cpuSelects();
+    setTimeout(replayCompArray, 1000);
   }
+}
+
+// Function to replay the computer's current array of moves:
+// Here's an Immediately Invoked Function Expression to time the moves, however this is not something I could've thought of on my own! Tho, there are still issues with it that I need to iron out...
+
+function replayCompArray() {
+  for (let i = 0; i < compButtonArray.length; i++) {
+    (function (index) {
+      setTimeout(function () {
+        const buttonId = compButtonArray[index] + "Btn";
+        btnActivated(buttonId, true);
+
+        setTimeout(function () {
+          btnActivated(buttonId, false);
+        }, 500);
+      }, 1000 * index);
+    })(i);
+  }
+  setTimeout(cpuSelects, 1000 * compButtonArray.length)
 }
 
 function resetGame() {
