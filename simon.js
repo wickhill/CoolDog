@@ -2,10 +2,6 @@
 
 let compButtonArray = [];
 
-function resetGame() {
-  compButtonArray = [];
-}
-
 function startGame() {
   cpuSelects();
 }
@@ -26,15 +22,54 @@ function cpuSelects() {
   }, 1000);
 }
 
-function btnActivated(buttonClass, isActive) {
-  const buttonBright = document.getElementById(buttonClass);
-  const activeClass = buttonClass + "Active";
+function btnActivated(buttonId, isActive) {
+  const buttonBright = document.getElementById(buttonId);
+  const activeClass = buttonId + "Active";
 
   if (isActive) {
     buttonBright.classList.add(activeClass);
   } else {
     buttonBright.classList.remove(activeClass);
   }
+}
+
+function correctOrIncorrect(buttonId, isCorrect) {
+  const allButtonsBright = document.getElementById(buttonId);
+  const allButtonsGreen = buttonId + "allButtonsCorrect";
+  const allButtonsRed = buttonId + "allButtonsIncorrect";
+
+  if (isCorrect) {
+    allButtonsBright.classList.add(allButtonsGreen);
+  } else {
+    allButtonsBright.classList.add(allButtonsRed);
+  }
+}
+
+// Player Moves and Storage:
+
+let playerSelections = [];
+
+function playerMoves(buttonId) {
+  playerSelections.push(buttonId.replace("Btn", ""));
+  compareMoves();
+}
+
+function compareMoves() {
+  for (let i = 0; i < playerSelections.length; i++) {
+    if (playerSelections[i] !== compButtonArray[i]) {
+      resetGame();
+      return;
+    }
+  }
+  if (playerSelections.length === compButtonArray.length) {
+    playerSelections = [];
+    cpuSelects();
+  }
+}
+
+function resetGame() {
+  playerSelections = [];
+  compButtonArray = [];
 }
 
 // Event Listeners:
@@ -45,7 +80,23 @@ document.getElementById("hintBtn").addEventListener("click", function () {
   console.log(compButtonArray);
 });
 
-document.getElementById("letsBegin").addEventListener("click", startGame);
+document.getElementById("startGameBtn").addEventListener("click", startGame);
+
+document.getElementById("coolBtn").addEventListener("click", function () {
+  playerMoves("coolBtn");
+});
+
+document.getElementById("dogBtn").addEventListener("click", function () {
+  playerMoves("dogBtn");
+});
+
+document.getElementById("gumBtn").addEventListener("click", function () {
+  playerMoves("gumBtn");
+});
+
+document.getElementById("boneBtn").addEventListener("click", function () {
+  playerMoves("boneBtn");
+});
 
 // let gameStartInterval = setInterval(cpuSelects, 2000);
 
@@ -54,9 +105,3 @@ cpuSelects();
 btnActivated();
 
 // clearInterval(cpuSelects);
-
-// function giveHint() {
-//   document.getElementById("hintBtn").addEventListener("click", function () {
-//     console.log(compButtonArray);
-//   });
-// }

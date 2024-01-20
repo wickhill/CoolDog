@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 250px;
+  margin-right: 150px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 2rem;
   flex-wrap: wrap;
@@ -17,7 +17,7 @@
   margin: 5px;
 }
 
-#letsBegin {
+#startGameBtn {
   background-color: rgb(38, 77, 205);
   color: hsl(167, 86%, 74%);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -116,6 +116,8 @@ body {
   background-color: rgb(214, 211, 211);
 }
 
+/* Compound Selectors, very cool, a technique suggested by ChatGPT while I was having issues overriding coolBtn's background-color! */
+
 #coolBtn.coolBtnActive {
   background-color: rgb(253, 251, 251);
 }
@@ -145,10 +147,10 @@ body {
   background-color: rgb(255, 16, 16);
 }
 
-.gameBtn.allButtonsCorrect {
+#btnContainer.allButtonsCorrect {
   background-color: rgb(88, 234, 31);
 }
 
-.gameBtn.allButtonsIncorrect {
+#btnContainer.allButtonsIncorrect {
   background-color: rgb(255, 16, 16);
 }
