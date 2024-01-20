@@ -34,17 +34,21 @@ function btnActivated(buttonId, isActive) {
   }
 }
 
-// Function to indicate to player whether game will progress (buttons flash green) or end (buttons flash red).
+// Function to indicate whether game will progress (buttons flash green) or end (buttons flash red).
 
-function correctOrIncorrect(buttonId, isCorrect) {
-  const allButtonsBright = document.getElementById(buttonId);
-  const allButtonsGreen = buttonId + "allButtonsCorrect";
-  const allButtonsRed = buttonId + "allButtonsIncorrect";
+function correctOrIncorrect(answerCorrect) {
+  const btnContainer = document.getElementById("btnContainer");
 
-  if (isCorrect) {
-    allButtonsBright.classList.add(allButtonsGreen);
+  if (answerCorrect) {
+    btnContainer.classList.add("allButtonsCorrect");
+    setTimeout(function () {
+      btnContainer.classList.remove("allButtonsCorrect");
+    }, 1000);
   } else {
-    allButtonsBright.classList.add(allButtonsRed);
+    btnContainer.classList.add("allButtonsIncorrect");
+    setTimeout(function () {
+      btnContainer.classList.remove("allButtonsIncorrect");
+    }, 1000);
   }
 }
 
@@ -60,11 +64,13 @@ function playerMoves(buttonId) {
 function compareMoves() {
   for (let i = 0; i < playerSelections.length; i++) {
     if (playerSelections[i] !== compButtonArray[i]) {
+      correctOrIncorrect(false);
       resetGame();
       return;
     }
   }
   if (playerSelections.length === compButtonArray.length) {
+    correctOrIncorrect(true);
     playerSelections = [];
     setTimeout(replayCompArray, 1000);
   }
@@ -86,7 +92,7 @@ function replayCompArray() {
       }, 1000 * index);
     })(i);
   }
-  setTimeout(cpuSelects, 1000 * compButtonArray.length)
+  setTimeout(cpuSelects, 1000 * compButtonArray.length);
 }
 
 function resetGame() {
