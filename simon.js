@@ -8,7 +8,7 @@ const buttonEmojis = [
 ];
 
 let sfx = {
-  newGame: new HTMLUnknownElement({
+  newGame: new Howl({
     src: ["./sounds/game-intro.wav"],
     sprite: {
       segment: [0, 5000],
@@ -16,7 +16,7 @@ let sfx = {
     volume: 0.5,
     loop: false,
   }),
-  success: new HTMLUnknownElement({
+  success: new Howl({
     src: ["./sounds/success-bell.wav"],
     sprite: {
       segment: [0, 4000],
@@ -24,17 +24,17 @@ let sfx = {
     volume: 0.5,
     loop: false,
   }),
-  gameOver: new HTMLUnknownElement({
+  gameOver: new Howl({
     src: ["./sounds/mistake.wav"],
     volume: 0.5,
     loop: false,
   }),
-  cool: new HTMLUnknownElement({
+  cool: new Howl({
     src: ["./sounds/dude.wav"],
     volume: 0.5,
     loop: false,
   }),
-  dog: new HTMLUnknownElement({
+  dog: new Howl({
     src: ["./sounds/puppy.wav"],
     sprite: {
       segment: [3325, 1120], // Starts file at 3325 ms, plays it for 1120 ms, i.e. from 3.325 seconds until 4.445 seconds.
@@ -42,12 +42,12 @@ let sfx = {
     volume: 0.5,
     loop: false,
   }),
-  gum: new HTMLUnknownElement({
+  gum: new Howl({
     src: ["./sounds/gum.mp3"],
     volume: 0.5,
     loop: false,
   }),
-  bone: new HTMLUnknownElement({
+  bone: new Howl({
     src: ["./sounds/vibraphone.mp3"],
     sprite: {
       segment: [0, 5000],
