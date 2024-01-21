@@ -43,12 +43,12 @@ function correctOrIncorrect(answerCorrect) {
     btnContainer.classList.add("allButtonsCorrect");
     setTimeout(function () {
       btnContainer.classList.remove("allButtonsCorrect");
-    }, 1000);
+    }, 707);
   } else {
     btnContainer.classList.add("allButtonsIncorrect");
     setTimeout(function () {
       btnContainer.classList.remove("allButtonsIncorrect");
-    }, 1000);
+    }, 11000);
   }
 }
 
@@ -127,9 +127,5 @@ document.getElementById("boneBtn").addEventListener("click", function () {
 });
 
 // let gameStartInterval = setInterval(cpuSelects, 2000);
-
-startGame();
-cpuSelects();
-btnActivated();
 
 // clearInterval(cpuSelects);

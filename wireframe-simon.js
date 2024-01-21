@@ -1,32 +1,76 @@
-// Now, need either a revised cpuSelects(); OR a cpuSelectsCont();
+// "shockedFace" gameplan:
+// I'll need to iterate over buttons and update each element individually.
+// 1. Iterate Over the Buttons:
+// 2.  Use a loop to go through each element in the collection returned by getElementsByClassName and change its innerHTML.
+// 3. Temporarily Change the innerHTML to '.innerHTML = "😵";'
+// 4. Use setTimeout to revert back to original content after a certain period.
 
-// Use this later, after you have the 'correctOrIncorrect' function up and running
-
-// function buildSubMenu(subLinks) {
-//   document.getElementsByClassName("gameBtn");
-//   gameBtn.innerHTML = "😵"
-// }
-
-function correctOrIncorrect(buttonId, answerCorrect) {
-  const allButtonsBright = document.getElementById(buttonId);
-  const allButtonsGreen = buttonId + "allButtonsCorrect";
-  const allButtonsRed = buttonId + "allButtonsIncorrect";
+function correctOrIncorrect(answerCorrect) {
+  const btnContainer = document.getElementById("btnContainer");
+  const shockedFaceClass = document.getElementsByClassName("gameBtn");
+  const shockedFaceID = document.getElementById("btnContainer");
 
   if (answerCorrect) {
-    allButtonsBright.classList.add(allButtonsGreen);
+    btnContainer.classList.add("allButtonsCorrect");
+    setTimeout(function () {
+      btnContainer.classList.remove("allButtonsCorrect");
+    }, 707);
   } else {
-    allButtonsBright.classList.add(allButtonsRed);
+    btnContainer.classList.add("allButtonsIncorrect");
+    setTimeout(function () {
+      btnContainer.classList.remove("allButtonsIncorrect");
+    }, 11000);
   }
 }
 
-correctOrIncorrect(buttonId + "allButtonsCorrect", true);
+const buttonEmojis = [
+  { id: "coolBtn", emoji: "😎" },
+  { id: "dogBtn", emoji: "🐕" },
+  { id: "gumBtn", emoji: "🍬" },
+  { id: "boneBtn", emoji: "🦴" },
+];
 
-setTimeout(function () {
-  btnActivated(randomChoice + "Btn", false);
-}, 1000);
+shockedFaceClass.forEach(function (tracker) {
+  tracker.getElementsByClassName("gameBtn").innerHTML = "😵";
+});
 
-correctOrIncorrect(buttonId + "allButtonsIncorrect", true);
+shockedFaceID.forEach(function (tracker) {
+  tracker.getElementById("coolBtn").innerHTML = btnContainer[0].emoji;
+  tracker.getElementById("dogBtn").innerHTML = btnContainer[1].emoji;
+  tracker.getElementById("gumBtn").innerHTML = btnContainer[2].emoji;
+  tracker.getElementById("boneBtn").innerHTML = btnContainer[3].emoji;
+});
 
-setTimeout(function () {
-  btnActivated(randomChoice + "Btn", false);
-}, 1000);
+const buttonEmojis = [
+  { id: "coolBtn", emoji: "😎" },
+  { id: "dogBtn", emoji: "🐕" },
+  { id: "gumBtn", emoji: "🍬" },
+  { id: "boneBtn", emoji: "🦴" },
+];
+
+function correctOrIncorrect(answerCorrect) {
+  const btnContainer = document.getElementById("btnContainer");
+  const shockedFaceClass = document.getElementsByClassName("gameBtn");
+  const shockedFaceID = document.getElementById("btnContainer");
+
+  if (answerCorrect) {
+    btnContainer.classList.add("allButtonsCorrect");
+    setTimeout(function () {
+      btnContainer.classList.remove("allButtonsCorrect");
+    }, 707);
+  } else {
+    btnContainer.classList.add("allButtonsIncorrect");
+    shockedFaceClass.forEach(function (tracker) {
+      tracker.getElementsByClassName("gameBtn").innerHTML = "😵";
+    });
+    setTimeout(function () {
+      btnContainer.classList.remove("allButtonsIncorrect");
+      shockedFaceID.forEach(function (tracker) {
+        tracker.getElementById("coolBtn").innerHTML = btnContainer[0].emoji;
+        tracker.getElementById("dogBtn").innerHTML = btnContainer[1].emoji;
+        tracker.getElementById("gumBtn").innerHTML = btnContainer[2].emoji;
+        tracker.getElementById("boneBtn").innerHTML = btnContainer[3].emoji;
+      });
+    }, 11000);
+  }
+}
