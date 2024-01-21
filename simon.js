@@ -13,7 +13,7 @@ let sfx = {
     sprite: {
       segment: [0, 2000],
     },
-    volume: 0.5,
+    volume: 0.9,
     loop: false,
   }),
   success: new Howl({
@@ -21,17 +21,17 @@ let sfx = {
     sprite: {
       segment: [0, 4000],
     },
-    volume: 0.3,
+    volume: 0.4,
     loop: false,
   }),
   gameOver: new Howl({
     src: ["./sounds/mistake.wav"],
-    volume: 0.1,
+    volume: 0.2,
     loop: false,
   }),
   cool: new Howl({
     src: ["./sounds/dude.wav"],
-    volume: 0.5,
+    volume: 0.6,
     loop: false,
   }),
   dog: new Howl({
@@ -39,12 +39,12 @@ let sfx = {
     sprite: {
       segment: [3325, 1120], // Starts file at 3325 ms, plays it for 1120 ms, i.e. from 3.325 seconds until 4.445 seconds.
     },
-    volume: 0.7,
+    volume: 1.2,
     loop: false,
   }),
   gum: new Howl({
     src: ["./sounds/gum.mp3"],
-    volume: 0.5,
+    volume: 0.7,
     loop: false,
   }),
   bone: new Howl({
@@ -52,7 +52,7 @@ let sfx = {
     sprite: {
       segment: [0, 5000],
     },
-    volume: 0.2,
+    volume: 0.3,
     loop: false,
   }),
 };
