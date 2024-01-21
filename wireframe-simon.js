@@ -5,6 +5,13 @@
 // 3. Temporarily Change the innerHTML to '.innerHTML = "😵";'
 // 4. Use setTimeout to revert back to original content after a certain period.
 
+const buttonEmojis = [
+  { id: "coolBtn", emoji: "😎" },
+  { id: "dogBtn", emoji: "🐕" },
+  { id: "gumBtn", emoji: "🍬" },
+  { id: "boneBtn", emoji: "🦴" },
+];
+
 function correctOrIncorrect(answerCorrect) {
   const btnContainer = document.getElementById("btnContainer");
   const shockedFaceClass = document.getElementsByClassName("gameBtn");
@@ -30,28 +37,9 @@ const buttonEmojis = [
   { id: "boneBtn", emoji: "🦴" },
 ];
 
-shockedFaceClass.forEach(function (tracker) {
-  tracker.getElementsByClassName("gameBtn").innerHTML = "😵";
-});
-
-shockedFaceID.forEach(function (tracker) {
-  tracker.getElementById("coolBtn").innerHTML = btnContainer[0].emoji;
-  tracker.getElementById("dogBtn").innerHTML = btnContainer[1].emoji;
-  tracker.getElementById("gumBtn").innerHTML = btnContainer[2].emoji;
-  tracker.getElementById("boneBtn").innerHTML = btnContainer[3].emoji;
-});
-
-const buttonEmojis = [
-  { id: "coolBtn", emoji: "😎" },
-  { id: "dogBtn", emoji: "🐕" },
-  { id: "gumBtn", emoji: "🍬" },
-  { id: "boneBtn", emoji: "🦴" },
-];
-
 function correctOrIncorrect(answerCorrect) {
   const btnContainer = document.getElementById("btnContainer");
   const shockedFaceClass = document.getElementsByClassName("gameBtn");
-  const shockedFaceID = document.getElementById("btnContainer");
 
   if (answerCorrect) {
     btnContainer.classList.add("allButtonsCorrect");
@@ -60,17 +48,15 @@ function correctOrIncorrect(answerCorrect) {
     }, 707);
   } else {
     btnContainer.classList.add("allButtonsIncorrect");
-    shockedFaceClass.forEach(function (tracker) {
-      tracker.getElementsByClassName("gameBtn").innerHTML = "😵";
-    });
+    for (let i = 0; i < shockedFaceClass.length; i++) {
+      shockedFaceClass[i].innerHTML = "😵";
+    }
     setTimeout(function () {
       btnContainer.classList.remove("allButtonsIncorrect");
-      shockedFaceID.forEach(function (tracker) {
-        tracker.getElementById("coolBtn").innerHTML = btnContainer[0].emoji;
-        tracker.getElementById("dogBtn").innerHTML = btnContainer[1].emoji;
-        tracker.getElementById("gumBtn").innerHTML = btnContainer[2].emoji;
-        tracker.getElementById("boneBtn").innerHTML = btnContainer[3].emoji;
-      });
+      document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
+      document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
+      document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
+      document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
     }, 11000);
   }
 }

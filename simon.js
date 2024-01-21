@@ -1,5 +1,12 @@
 // Startup Functions:
 
+const buttonEmojis = [
+  { id: "coolBtn", emoji: "😎" },
+  { id: "dogBtn", emoji: "🐕" },
+  { id: "gumBtn", emoji: "🍬" },
+  { id: "boneBtn", emoji: "🦴" },
+];
+
 let compButtonArray = [];
 
 function startGame() {
@@ -38,6 +45,7 @@ function btnActivated(buttonId, isActive) {
 
 function correctOrIncorrect(answerCorrect) {
   const btnContainer = document.getElementById("btnContainer");
+  const shockedFaceClass = document.getElementsByClassName("gameBtn");
 
   if (answerCorrect) {
     btnContainer.classList.add("allButtonsCorrect");
@@ -46,9 +54,16 @@ function correctOrIncorrect(answerCorrect) {
     }, 707);
   } else {
     btnContainer.classList.add("allButtonsIncorrect");
+    for (let i = 0; i < shockedFaceClass.length; i++) {
+      shockedFaceClass[i].innerHTML = "😵";
+    }
     setTimeout(function () {
       btnContainer.classList.remove("allButtonsIncorrect");
-    }, 11000);
+      document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
+      document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
+      document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
+      document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
+    }, 7070);
   }
 }
 
