@@ -7,11 +7,68 @@ const buttonEmojis = [
   { id: "boneBtn", emoji: "🦴" },
 ];
 
+let sfx = {
+  newGame: new HTMLUnknownElement({
+    src: ["./sounds/game-intro.wav"],
+    sprite: {
+      segment: [0, 5000],
+    },
+    volume: 0.5,
+    loop: false,
+  }),
+  success: new HTMLUnknownElement({
+    src: ["./sounds/success-bell.wav"],
+    sprite: {
+      segment: [0, 4000],
+    },
+    volume: 0.5,
+    loop: false,
+  }),
+  gameOver: new HTMLUnknownElement({
+    src: ["./sounds/mistake.wav"],
+    volume: 0.5,
+    loop: false,
+  }),
+  cool: new HTMLUnknownElement({
+    src: ["./sounds/dude.wav"],
+    volume: 0.5,
+    loop: false,
+  }),
+  dog: new HTMLUnknownElement({
+    src: ["./sounds/puppy.wav"],
+    sprite: {
+      segment: [3325, 1120], // Starts file at 3325 ms, plays it for 1120 ms, i.e. from 3.325 seconds until 4.445 seconds.
+    },
+    volume: 0.5,
+    loop: false,
+  }),
+  gum: new HTMLUnknownElement({
+    src: ["./sounds/gum.mp3"],
+    volume: 0.5,
+    loop: false,
+  }),
+  bone: new HTMLUnknownElement({
+    src: ["./sounds/vibraphone.mp3"],
+    sprite: {
+      segment: [0, 5000],
+    },
+    volume: 0.5,
+    loop: false,
+  }),
+};
+
 let compButtonArray = [];
 
 function startGame() {
   compButtonArray = [];
-  cpuSelects();
+  btnContainer.classList.remove("allButtonsIncorrect");
+  document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
+  document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
+  document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
+  document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
+  setTimeout(function () {
+    cpuSelects();
+  }, 300);
 }
 
 // Bulk Framework:
