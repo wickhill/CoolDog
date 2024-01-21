@@ -11,7 +11,7 @@ let sfx = {
   newGame: new Howl({
     src: ["./sounds/game-intro.wav"],
     sprite: {
-      segment: [0, 5000],
+      segment: [0, 2000],
     },
     volume: 0.5,
     loop: false,
@@ -21,12 +21,12 @@ let sfx = {
     sprite: {
       segment: [0, 4000],
     },
-    volume: 0.5,
+    volume: 0.3,
     loop: false,
   }),
   gameOver: new Howl({
     src: ["./sounds/mistake.wav"],
-    volume: 0.5,
+    volume: 0.1,
     loop: false,
   }),
   cool: new Howl({
@@ -39,7 +39,7 @@ let sfx = {
     sprite: {
       segment: [3325, 1120], // Starts file at 3325 ms, plays it for 1120 ms, i.e. from 3.325 seconds until 4.445 seconds.
     },
-    volume: 0.5,
+    volume: 0.7,
     loop: false,
   }),
   gum: new Howl({
@@ -52,7 +52,7 @@ let sfx = {
     sprite: {
       segment: [0, 5000],
     },
-    volume: 0.5,
+    volume: 0.2,
     loop: false,
   }),
 };
@@ -105,11 +105,13 @@ function correctOrIncorrect(answerCorrect) {
   const shockedFaceClass = document.getElementsByClassName("gameBtn");
 
   if (answerCorrect) {
+    sfx.success.play("segment");
     btnContainer.classList.add("allButtonsCorrect");
     setTimeout(function () {
       btnContainer.classList.remove("allButtonsCorrect");
     }, 707);
   } else {
+    sfx.gameOver.play();
     btnContainer.classList.add("allButtonsIncorrect");
     for (let i = 0; i < shockedFaceClass.length; i++) {
       shockedFaceClass[i].innerHTML = "😵";
@@ -196,6 +198,28 @@ document.getElementById("gumBtn").addEventListener("click", function () {
 
 document.getElementById("boneBtn").addEventListener("click", function () {
   playerMoves("boneBtn");
+});
+
+// Lots of Sound Effects, (SFX) here:
+
+document.querySelector("#startGameBtn").addEventListener("click", function () {
+  console.log(sfx.newGame.play("segment"));
+});
+
+document.querySelector("#coolBtn").addEventListener("click", function () {
+  console.log(sfx.cool.play());
+});
+
+document.querySelector("#dogBtn").addEventListener("click", function () {
+  console.log(sfx.dog.play("segment"));
+});
+
+document.querySelector("#gumBtn").addEventListener("click", function () {
+  console.log(sfx.gum.play());
+});
+
+document.querySelector("#boneBtn").addEventListener("click", function () {
+  console.log(sfx.bone.play("segment"));
 });
 
 // let gameStartInterval = setInterval(cpuSelects, 2000);

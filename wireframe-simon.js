@@ -55,9 +55,9 @@ let sfx = {
   }),
 };
 
-document.querySelector("#startGameBtn").addEventListener("click", function () {
-  console.log(sfx.newGame.play("segment"));
-});
+
+
+
 document.querySelector("#coolBtn").addEventListener("click", function () {
   console.log(sfx.cool.play());
 });
@@ -71,6 +71,5 @@ document.querySelector("#boneBtn").addEventListener("click", function () {
   console.log(sfx.bone.play("segment"));
 });
 
-
-console.log(sfx.success.play("segment"));
-console.log(sfx.gameOver.play());
+sfx.success.play("segment");
+sfx.gameOver.play();
