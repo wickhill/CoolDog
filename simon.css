@@ -1,20 +1,55 @@
-#startHintRestartContainer {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-10%);
+#pageContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 150px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 2rem;
-  flex-wrap: wrap;
-  padding: 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
 }
 
-#startHintRestartContainer button {
-  margin: 5px;
+#h1Container {
+  font-family: "Homemade Apple", cursive;
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 3.5rem;
+}
+
+#btnContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 500px;
+  margin: auto;
+}
+
+#startHintRestartContainer {
+  flex-direction: column;
+  align-items: center; /* Align buttons in the center of the container */
+  justify-content: center; /* Align items to the start of the flex container */
+  margin-right: -100px; /* Adjust as needed for spacing from the right edge */
+  display: flex;
+  flex-direction: row; /* Stack buttons vertically */
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+  padding: 15px 15px 15px 15px;
+}
+
+@media (max-width: 600px) {
+  /* Adjust breakpoint as needed */
+  #pageContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #startHintRestartContainer {
+    box-sizing: border-box;
+    order: 3; /* Place it last */
+    margin-right: 0;
+    margin-top: 20px;
+  }
 }
 
 #startGameBtn {
@@ -35,19 +70,12 @@
   cursor: pointer;
 }
 
-body {
-  background-color: rgb(255, 220, 211);
+#hintBtn {
+  cursor: help;
 }
 
-#h1Container {
-  font-family: "Homemade Apple", cursive;
-  font-family: "Rubik Doodle Shadow", system-ui;
-  font-weight: bold;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  font-size: 3.5rem;
+body {
+  background-color: rgb(255, 220, 211);
 }
 
 .h1Cool {
@@ -66,15 +94,6 @@ body {
   color: rgb(136, 133, 133);
 }
 
-#btnContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  max-width: 500px;
-  margin: auto;
-}
-
 .gameBtn {
   font-size: 10rem;
   flex: 0 0 25%;
@@ -89,7 +108,7 @@ body {
 }
 
 #coolBtn:hover {
-  background-color: rgb(163, 228, 234);
+  background-color: rgb(77, 201, 233);
 }
 
 #dogBtn {
@@ -97,7 +116,7 @@ body {
 }
 
 #dogBtn:hover {
-  background-color: rgb(167, 246, 158);
+  background-color: rgb(122, 239, 109);
 }
 
 #gumBtn {
@@ -105,7 +124,7 @@ body {
 }
 
 #gumBtn:hover {
-  background-color: rgb(248, 173, 245);
+  background-color: rgb(243, 96, 236);
 }
 
 #boneBtn {
@@ -113,7 +132,7 @@ body {
 }
 
 #boneBtn:hover {
-  background-color: rgb(214, 211, 211);
+  background-color: rgb(156, 154, 154);
 }
 
 /* Compound Selectors, very cool, a technique suggested by ChatGPT while I was having issues overriding coolBtn's background-color! */
@@ -149,8 +168,10 @@ body {
 
 #btnContainer.allButtonsCorrect {
   background-color: rgb(88, 234, 31);
+  border-radius: 50%;
 }
 
 #btnContainer.allButtonsIncorrect {
   background-color: rgb(255, 16, 16);
+  border-radius: 50%;
 }
