@@ -65,6 +65,7 @@ document.getElementById("currentScoreNums").innerHTML = currentScore.toString();
 document.getElementById("highScoreNums").innerHTML = highScore.toString();
 
 function startGame() {
+  isPlayerTurn = false;
   compButtonArray = [];
   let currentScore = 0;
   document.getElementById("currentScoreNums").innerHTML =
@@ -82,6 +83,7 @@ function startGame() {
 // Bulk Framework:
 
 function cpuSelects() {
+  isPlayerTurn = false;
   const buttonChoices = ["cool", "dog", "gum", "bone"];
   const randomIndex = Math.floor(Math.random() * buttonChoices.length);
   const randomChoice = buttonChoices[randomIndex];
@@ -93,6 +95,7 @@ function cpuSelects() {
   setTimeout(function () {
     btnActivated(randomChoice + "Btn", false);
   }, 1000);
+  isPlayerTurn = true;
 }
 
 function btnActivated(buttonId, isActive) {
@@ -104,6 +107,7 @@ function btnActivated(buttonId, isActive) {
   } else {
     buttonBright.classList.remove(activeClass);
   }
+  isPlayerTurn = true;
 }
 
 // Function to indicate whether game will progress (buttons flash green) or end (buttons flash red).
@@ -150,11 +154,13 @@ let playerSelections = [];
 // Here, we're looking for IDs with 'Btn' in them, and then removing that specific part of the ID so as to get a 'buttonChoices' move, push it into the 'playerSelections' array, and then compare both the computer and the player arrays.
 
 function playerMoves(buttonId) {
+  isPlayerTurn = true;
   playerSelections.push(buttonId.replace("Btn", ""));
   compareMoves();
 }
 
 function compareMoves() {
+  isPlayerTurn = false;
   for (let i = 0; i < playerSelections.length; i++) {
     if (playerSelections[i] !== compButtonArray[i]) {
       correctOrIncorrect(false);
@@ -173,6 +179,7 @@ function compareMoves() {
 // Here's an Immediately Invoked Function Expression to time the moves, however this is not something I could've thought of on my own! Tho, there are still issues with it that I need to iron out...
 
 function replayCompArray() {
+  isPlayerTurn = false;
   for (let i = 0; i < compButtonArray.length; i++) {
     (function (index) {
       setTimeout(function () {
@@ -186,6 +193,7 @@ function replayCompArray() {
     })(i);
   }
   setTimeout(cpuSelects, 1000 * compButtonArray.length);
+  isPlayerTurn = true;
 }
 
 function resetGame() {
@@ -203,20 +211,36 @@ document.getElementById("hintBtn").addEventListener("click", function () {
 
 document.getElementById("startGameBtn").addEventListener("click", startGame);
 
-document.getElementById("coolBtn").addEventListener("click", function () {
-  playerMoves("coolBtn");
+document.getElementById("coolBtn").addEventListener("click", function (e) {
+  if (isPlayerTurn === false) {
+    e.preventDefault();
+  } else {
+    playerMoves("coolBtn");
+  }
 });
 
-document.getElementById("dogBtn").addEventListener("click", function () {
-  playerMoves("dogBtn");
+document.getElementById("dogBtn").addEventListener("click", function (e) {
+  if (isPlayerTurn === false) {
+    e.preventDefault();
+  } else {
+    playerMoves("dogBtn");
+  }
 });
 
-document.getElementById("gumBtn").addEventListener("click", function () {
-  playerMoves("gumBtn");
+document.getElementById("gumBtn").addEventListener("click", function (e) {
+  if (isPlayerTurn === false) {
+    e.preventDefault();
+  } else {
+    playerMoves("gumBtn");
+  }
 });
 
-document.getElementById("boneBtn").addEventListener("click", function () {
-  playerMoves("boneBtn");
+document.getElementById("boneBtn").addEventListener("click", function (e) {
+  if (isPlayerTurn === false) {
+    e.preventDefault();
+  } else {
+    playerMoves("boneBtn");
+  }
 });
 
 // Lots of Sound Effects, (SFX) here:
@@ -226,19 +250,19 @@ document.querySelector("#startGameBtn").addEventListener("click", function () {
 });
 
 document.querySelector("#coolBtn").addEventListener("click", function () {
-  console.log(sfx.cool.play());
+    console.log(sfx.cool.play());
 });
 
 document.querySelector("#dogBtn").addEventListener("click", function () {
-  console.log(sfx.dog.play("segment"));
+    console.log(sfx.dog.play());
 });
 
 document.querySelector("#gumBtn").addEventListener("click", function () {
-  console.log(sfx.gum.play());
+    console.log(sfx.gum.play());
 });
 
 document.querySelector("#boneBtn").addEventListener("click", function () {
-  console.log(sfx.bone.play("segment"));
+    console.log(sfx.bone.play());
 });
 
 // let gameStartInterval = setInterval(cpuSelects, 2000);
