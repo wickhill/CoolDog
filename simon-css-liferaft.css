@@ -1,0 +1,176 @@
+#h1Container {
+  font-family: "Homemade Apple", cursive;
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 3.5rem;
+}
+
+#pageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+
+#btnContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 500px;
+  margin: auto;
+}
+
+#startHintRestartContainer {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: -100px;
+  display: flex;
+  flex-direction: row;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+  padding: 15px 15px 15px 15px;
+}
+
+@media (max-width: 600px) {
+  #pageContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #startHintRestartContainer {
+    box-sizing: border-box;
+    order: 3;
+    margin-right: 0;
+    margin-top: 20px;
+  }
+}
+
+#startGameBtn {
+  background-color: rgb(38, 77, 205);
+  color: hsl(167, 86%, 74%);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#resetBtn {
+  background-color: rgb(255, 46, 46);
+  color: hsl(120, 5%, 4%);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#hintBtn {
+  cursor: help;
+}
+
+body {
+  background-color: rgb(255, 220, 211);
+}
+
+.h1Cool {
+  color: rgb(9, 187, 232);
+}
+
+.h1Dog {
+  color: ;
+}
+
+.h1Gum {
+  color: rgb(239, 55, 230);
+}
+
+.h1Bone {
+  color: rgb(136, 133, 133);
+}
+
+.gameBtn {
+  font-size: 10rem;
+  flex: 0 0 25%;
+  margin: 5px 5px;
+  border-radius: 50px;
+  cursor: grab;
+  transition: background-color 0.2s ease;
+}
+
+#coolBtn {
+  background-color: rgb(9, 187, 232);
+}
+
+#coolBtn:hover {
+  background-color: rgb(77, 201, 233);
+}
+
+#dogBtn {
+  background-color: rgb(52, 233, 32);
+}
+
+#dogBtn:hover {
+  background-color: rgb(122, 239, 109);
+}
+
+#gumBtn {
+  background-color: rgb(239, 55, 230);
+}
+
+#gumBtn:hover {
+  background-color: rgb(243, 96, 236);
+}
+
+#boneBtn {
+  background-color: rgb(136, 133, 133);
+}
+
+#boneBtn:hover {
+  background-color: rgb(156, 154, 154);
+}
+
+/* Compound Selectors, very cool, a technique suggested by ChatGPT while I was having issues overriding coolBtn's background-color! */
+
+#coolBtn.coolBtnActive {
+  background-color: rgb(253, 251, 251);
+}
+#dogBtn.dogBtnActive {
+  background-color: rgb(253, 251, 251);
+}
+
+#gumBtn.gumBtnActive {
+  background-color: rgb(253, 251, 251);
+}
+
+#boneBtn.boneBtnActive {
+  background-color: rgb(253, 251, 251);
+}
+
+#coolBtn.coolBtnCorrect,
+#dogBtn.dogBtnCorrect,
+#gumBtn.gumBtnCorrect,
+#boneBtn.boneBtnCorrect {
+  background-color: rgb(88, 234, 31);
+}
+
+#coolBtn.coolBtnIncorrect,
+#dogBtn.dogBtnIncorrect,
+#gumBtn.gumBtnIncorrect,
+#boneBtn.boneBtnIncorrect {
+  background-color: rgb(255, 16, 16);
+}
+
+#btnContainer.allButtonsCorrect {
+  background-color: rgb(88, 234, 31);
+  border-radius: 50%;
+}
+
+#btnContainer.allButtonsIncorrect {
+  background-color: rgb(255, 16, 16);
+  border-radius: 50%;
+}
