@@ -60,6 +60,7 @@ let sfx = {
 let compButtonArray = [];
 let currentScore = 0;
 let highScore = 0;
+
 document.getElementById("currentScoreNums").innerHTML = currentScore.toString();
 document.getElementById("highScoreNums").innerHTML = highScore.toString();
 
@@ -145,6 +146,8 @@ function correctOrIncorrect(answerCorrect) {
 // Player Moves and Storage:
 
 let playerSelections = [];
+
+// Here, we're looking for IDs with 'Btn' in them, and then removing that specific part of the ID so as to get a 'buttonChoices' move, push it into the 'playerSelections' array, and then compare both the computer and the player arrays.
 
 function playerMoves(buttonId) {
   playerSelections.push(buttonId.replace("Btn", ""));
