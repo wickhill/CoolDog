@@ -60,6 +60,7 @@ let sfx = {
 let compButtonArray = [];
 let currentScore = 0;
 let highScore = 0;
+// I initialized / declared 'let isPlayerTurn = true;' because, for whatever reason, starting it off as 'false' was making it perform in unexpected ways, whereas this method, starting with it declared as 'true', works just fine! More testing is required, but so far, so good!
 let isPlayerTurn = true;
 
 document.getElementById("currentScoreNums").innerHTML = currentScore.toString();
@@ -209,6 +210,8 @@ document.getElementById("hintBtn").addEventListener("click", function () {
 
 document.getElementById("startGameBtn").addEventListener("click", startGame);
 
+// Player input AND player-input-ignore (preventDefault();) features!
+
 document.getElementById("coolBtn").addEventListener("click", function (e) {
   if (isPlayerTurn === false) {
     e.preventDefault();
@@ -241,7 +244,7 @@ document.getElementById("boneBtn").addEventListener("click", function (e) {
   }
 });
 
-// Lots of Sound Effects, (SFX) here:
+// Sound Effects (SFX) here, as well as a player-input-ignore (preventDefault();) feature!
 
 document.querySelector("#startGameBtn").addEventListener("click", function () {
   console.log(sfx.newGame.play("segment"));
