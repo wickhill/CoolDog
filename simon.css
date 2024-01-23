@@ -12,25 +12,25 @@
 #pageContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-gap: 1em;
 }
 
 #btnContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-gap: 1em;
   grid-column: 2 / 4;
   grid-row: 1 / 3;
 }
 
 #coolBtn {
-    grid-column: 3 / 4;
+  grid-column: 3 / 4;
   grid-row: 1 / 2;
 }
 #dogBtn {
-    grid-column: 4 / 5 ;
+  grid-column: 4 / 5;
   grid-row: 1 / 2;
 }
 #gumBtn {
@@ -43,8 +43,10 @@
 }
 
 #startHintRestartContainer {
-  grid-column: 4 / 5;
-  grid-row: -3 / -2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1em;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 2rem;
   padding: 15px 15px 15px 15px;
@@ -71,6 +73,8 @@
   font-size: 2rem;
   border-radius: 15px;
   cursor: pointer;
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
 }
 
 #resetBtn {
@@ -80,10 +84,14 @@
   font-size: 2rem;
   border-radius: 15px;
   cursor: pointer;
+  grid-column: 4 / 5;
+  grid-row: 1 / 2;
 }
 
 #hintBtn {
   cursor: help;
+  grid-column: 5 / 6;
+  grid-row: 1 / 2;
 }
 
 body {
@@ -164,7 +172,7 @@ body {
   background-color: rgb(253, 251, 251);
 }
 
-#coolBtn.coolBtnCorrect,
+/* #coolBtn.coolBtnCorrect,
 #dogBtn.dogBtnCorrect,
 #gumBtn.gumBtnCorrect,
 #boneBtn.boneBtnCorrect {
@@ -176,7 +184,7 @@ body {
 #gumBtn.gumBtnIncorrect,
 #boneBtn.boneBtnIncorrect {
   background-color: rgb(255, 16, 16);
-}
+} */
 
 #btnContainer.allButtonsCorrect {
   background-color: rgb(88, 234, 31);
