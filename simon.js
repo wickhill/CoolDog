@@ -58,9 +58,16 @@ let sfx = {
 };
 
 let compButtonArray = [];
+let currentScore = 0;
+let highScore = 0;
+document.getElementById("currentScoreNums").innerHTML = currentScore.toString();
+document.getElementById("highScoreNums").innerHTML = highScore.toString();
 
 function startGame() {
   compButtonArray = [];
+  let currentScore = 0;
+  document.getElementById("currentScoreNums").innerHTML =
+    currentScore.toString();
   btnContainer.classList.remove("allButtonsIncorrect");
   document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
   document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
@@ -105,16 +112,25 @@ function correctOrIncorrect(answerCorrect) {
   const shockedFaceClass = document.getElementsByClassName("gameBtn");
 
   if (answerCorrect) {
+    currentScore++;
+    document.getElementById("currentScoreNums").innerHTML =
+      currentScore.toString();
     sfx.success.play("segment");
     btnContainer.classList.add("allButtonsCorrect");
     setTimeout(function () {
       btnContainer.classList.remove("allButtonsCorrect");
     }, 707);
   } else {
+    if (currentScore > highScore) {
+      highScore = currentScore;
+      document.getElementById("highScoreNums").innerHTML = highScore.toString();
+    }
+
     sfx.gameOver.play();
     btnContainer.classList.add("allButtonsIncorrect");
     for (let i = 0; i < shockedFaceClass.length; i++) {
       shockedFaceClass[i].innerHTML = "😵";
+      currentScore = 0;
     }
     setTimeout(function () {
       btnContainer.classList.remove("allButtonsIncorrect");
