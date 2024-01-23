@@ -60,12 +60,12 @@ let sfx = {
 let compButtonArray = [];
 let currentScore = 0;
 let highScore = 0;
+let isPlayerTurn = true;
 
 document.getElementById("currentScoreNums").innerHTML = currentScore.toString();
 document.getElementById("highScoreNums").innerHTML = highScore.toString();
 
 function startGame() {
-  isPlayerTurn = false;
   compButtonArray = [];
   let currentScore = 0;
   document.getElementById("currentScoreNums").innerHTML =
@@ -107,12 +107,12 @@ function btnActivated(buttonId, isActive) {
   } else {
     buttonBright.classList.remove(activeClass);
   }
-  isPlayerTurn = true;
 }
 
 // Function to indicate whether game will progress (buttons flash green) or end (buttons flash red).
 
 function correctOrIncorrect(answerCorrect) {
+  isPlayerTurn = false;
   const btnContainer = document.getElementById("btnContainer");
   const shockedFaceClass = document.getElementsByClassName("gameBtn");
 
@@ -160,7 +160,6 @@ function playerMoves(buttonId) {
 }
 
 function compareMoves() {
-  isPlayerTurn = false;
   for (let i = 0; i < playerSelections.length; i++) {
     if (playerSelections[i] !== compButtonArray[i]) {
       correctOrIncorrect(false);
@@ -193,7 +192,6 @@ function replayCompArray() {
     })(i);
   }
   setTimeout(cpuSelects, 1000 * compButtonArray.length);
-  isPlayerTurn = true;
 }
 
 function resetGame() {
@@ -249,20 +247,36 @@ document.querySelector("#startGameBtn").addEventListener("click", function () {
   console.log(sfx.newGame.play("segment"));
 });
 
-document.querySelector("#coolBtn").addEventListener("click", function () {
+document.querySelector("#coolBtn").addEventListener("click", function (e) {
+  if (isPlayerTurn === false) {
+    e.preventDefault();
+  } else {
     console.log(sfx.cool.play());
+  }
 });
 
-document.querySelector("#dogBtn").addEventListener("click", function () {
-    console.log(sfx.dog.play());
+document.querySelector("#dogBtn").addEventListener("click", function (e) {
+  if (isPlayerTurn === false) {
+    e.preventDefault();
+  } else {
+    console.log(sfx.dog.play("segment"));
+  }
 });
 
-document.querySelector("#gumBtn").addEventListener("click", function () {
+document.querySelector("#gumBtn").addEventListener("click", function (e) {
+  if (isPlayerTurn === false) {
+    e.preventDefault();
+  } else {
     console.log(sfx.gum.play());
+  }
 });
 
-document.querySelector("#boneBtn").addEventListener("click", function () {
-    console.log(sfx.bone.play());
+document.querySelector("#boneBtn").addEventListener("click", function (e) {
+  if (isPlayerTurn === false) {
+    e.preventDefault();
+  } else {
+    console.log(sfx.bone.play("segment"));
+  }
 });
 
 // let gameStartInterval = setInterval(cpuSelects, 2000);
