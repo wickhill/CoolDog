@@ -206,6 +206,9 @@ function replayCompArray() {
 function resetGame() {
   playerSelections = [];
   compButtonArray = [];
+  currentScore = 0;
+  document.getElementById("currentScoreNums").innerHTML = "0";
+  hintBtnColorWarnings.removeAttribute("class");
 }
 
 // Event Listeners:
