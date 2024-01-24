@@ -76,12 +76,12 @@ function startGame() {
   document.getElementById("currentScoreNums").innerHTML =
     currentScore.toString();
   btnContainer.classList.remove("allButtonsIncorrect");
-  document.getElementById("hintBtn").innerHTML = "Hints Remaining: Three";
+  document.getElementById("hintBtn").innerHTML = "Hints Remaining: 3";
+  hintBtnColorWarnings.removeAttribute("class");
   document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
   document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
   document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
   document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
-  hintBtnColorWarnings.removeAttribute("class");
   setTimeout(function () {
     cpuSelects();
   }, 300);
@@ -208,7 +208,9 @@ function resetGame() {
   compButtonArray = [];
   currentScore = 0;
   document.getElementById("currentScoreNums").innerHTML = "0";
+  document.getElementById("hintBtn").innerHTML = "Hints Remaining: 3";
   hintBtnColorWarnings.removeAttribute("class");
+  console.log(sfx.dog.play("segment"));
 }
 
 // Event Listeners:
@@ -301,26 +303,26 @@ document.querySelector("#boneBtn").addEventListener("click", function (e) {
 
 function numberOfHints() {
   if (hintCounter === 0) {
-    document.getElementById("hintBtn").innerHTML = "Hints Remaining: Three";
+    document.getElementById("hintBtn").innerHTML = "Hints Remaining: 3";
   } else if (hintCounter === 1) {
     hintBtnColorWarnings.classList.add("hintYellow");
-    document.getElementById("hintBtn").innerHTML = "Hints Remaining: Two";
+    document.getElementById("hintBtn").innerHTML = "Hints Remaining: ✌️";
   } else if (hintCounter === 2) {
     hintBtnColorWarnings.classList.add("hintRed1");
-    document.getElementById("hintBtn").innerHTML = "Hints Remaining: One";
+    document.getElementById("hintBtn").innerHTML = "Hints Remaining: 👆";
   } else if (hintCounter === 3) {
     hintBtnColorWarnings.classList.add("hintRed2");
-    document.getElementById("hintBtn").innerHTML = "Are you sure about this?!";
+    document.getElementById("hintBtn").innerHTML = "Are you sure?";
   } else if (hintCounter === 4) {
     hintBtnColorWarnings.classList.add("hintRed3");
-    document.getElementById("hintBtn").innerHTML = "Umm, don't push your luck!";
+    document.getElementById("hintBtn").innerHTML = "🤨";
   } else if (hintCounter === 5) {
     hintBtnColorWarnings.classList.add("hintPink1");
-    document.getElementById("hintBtn").innerHTML = "I mean, you might as well!";
+    document.getElementById("hintBtn").innerHTML = "🙄";
   } else {
-    document.getElementById("hintBtn").innerHTML = "Dun dun duuuuuuun!";
+    document.getElementById("hintBtn").innerHTML = "😜";
     correctOrIncorrect(false);
-    resetGame();
+    // resetGame();
     // hintBtnColorWarnings.removeAttribute("class");
     return;
   }
