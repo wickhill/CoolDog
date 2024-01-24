@@ -76,7 +76,7 @@ function startGame() {
   document.getElementById("currentScoreNums").innerHTML =
     currentScore.toString();
   btnContainer.classList.remove("allButtonsIncorrect");
-  document.getElementById("hintBtn").innerHTML = "Hints Remaining: 3";
+  document.getElementById("hintBtn").innerHTML = "Hints: 3";
   hintBtnColorWarnings.removeAttribute("class");
   document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
   document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
@@ -208,7 +208,7 @@ function resetGame() {
   compButtonArray = [];
   currentScore = 0;
   document.getElementById("currentScoreNums").innerHTML = "0";
-  document.getElementById("hintBtn").innerHTML = "Hints Remaining: 3";
+  document.getElementById("hintBtn").innerHTML = "Hints: 3";
   hintBtnColorWarnings.removeAttribute("class");
   console.log(sfx.dog.play("segment"));
 }
@@ -225,7 +225,7 @@ document.getElementById("hintBtn").addEventListener("click", function () {
 
 document.getElementById("startGameBtn").addEventListener("click", startGame);
 
-// Player input AND player-input-ignore (preventDefault();) features!
+// Player input AND player-input-ignore i.e. preventDefault() features!
 
 document.getElementById("coolBtn").addEventListener("click", function (e) {
   if (isPlayerTurn === false) {
@@ -303,13 +303,13 @@ document.querySelector("#boneBtn").addEventListener("click", function (e) {
 
 function numberOfHints() {
   if (hintCounter === 0) {
-    document.getElementById("hintBtn").innerHTML = "Hints Remaining: 3";
+    document.getElementById("hintBtn").innerHTML = "Hints: 3";
   } else if (hintCounter === 1) {
     hintBtnColorWarnings.classList.add("hintYellow");
-    document.getElementById("hintBtn").innerHTML = "Hints Remaining: ✌️";
+    document.getElementById("hintBtn").innerHTML = "Hints: ✌️";
   } else if (hintCounter === 2) {
     hintBtnColorWarnings.classList.add("hintRed1");
-    document.getElementById("hintBtn").innerHTML = "Hints Remaining: 👆";
+    document.getElementById("hintBtn").innerHTML = "Hints: 👆";
   } else if (hintCounter === 3) {
     hintBtnColorWarnings.classList.add("hintRed2");
     document.getElementById("hintBtn").innerHTML = "Are you sure?";
