@@ -63,6 +63,7 @@ let highScore = 0;
 let hintCounter = 0;
 // I initialized / declared 'let isPlayerTurn = true;' because - for some reason - starting it off as 'false' was making it perform in unexpected ways. But this method, starting with it declared as 'true' works just fine! More testing is required, but so far, so good!
 let isPlayerTurn = true;
+const hintBtnColorWarnings = document.getElementById("hintBtn");
 
 document.getElementById("currentScoreNums").innerHTML = currentScore.toString();
 document.getElementById("highScoreNums").innerHTML = highScore.toString();
@@ -80,6 +81,7 @@ function startGame() {
   document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
   document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
   document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
+  hintBtnColorWarnings.removeAttribute("class");
   setTimeout(function () {
     cpuSelects();
   }, 300);
@@ -297,20 +299,25 @@ function numberOfHints() {
   if (hintCounter === 0) {
     document.getElementById("hintBtn").innerHTML = "Hints Remaining: Three";
   } else if (hintCounter === 1) {
+    hintBtnColorWarnings.classList.add("hintYellow");
     document.getElementById("hintBtn").innerHTML = "Hints Remaining: Two";
   } else if (hintCounter === 2) {
+    hintBtnColorWarnings.classList.add("hintRed1");
     document.getElementById("hintBtn").innerHTML = "Hints Remaining: One";
   } else if (hintCounter === 3) {
-    document.getElementById("hintBtn").innerHTML = "Don't Do It!";
+    hintBtnColorWarnings.classList.add("hintRed2");
+    document.getElementById("hintBtn").innerHTML = "Are you sure about this?!";
   } else if (hintCounter === 4) {
-    document.getElementById("hintBtn").innerHTML = "Don't push your luck!";
+    hintBtnColorWarnings.classList.add("hintRed3");
+    document.getElementById("hintBtn").innerHTML = "Umm, don't push your luck!";
   } else if (hintCounter === 5) {
-    document.getElementById("hintBtn").innerHTML = "We really mean it!";
+    hintBtnColorWarnings.classList.add("hintPink1");
+    document.getElementById("hintBtn").innerHTML = "I mean, you may as well!";
   } else {
-    document.getElementById("hintBtn").innerHTML =
-      "Don't say we didn't warn ya!";
+    document.getElementById("hintBtn").innerHTML = "Dun dun duuuuuuun!";
     correctOrIncorrect(false);
     resetGame();
+    // hintBtnColorWarnings.removeAttribute("class");
     return;
   }
 }
