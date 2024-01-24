@@ -60,7 +60,7 @@ let sfx = {
 let compButtonArray = [];
 let currentScore = 0;
 let highScore = 0;
-// I initialized / declared 'let isPlayerTurn = true;' because, for whatever reason, starting it off as 'false' was making it perform in unexpected ways, whereas this method, starting with it declared as 'true', works just fine! More testing is required, but so far, so good!
+// I initialized / declared 'let isPlayerTurn = true;' because - for some reason - starting it off as 'false' was making it perform in unexpected ways. But this method, starting with it declared as 'true' works just fine! More testing is required, but so far, so good!
 let isPlayerTurn = true;
 
 document.getElementById("currentScoreNums").innerHTML = currentScore.toString();
@@ -69,6 +69,7 @@ document.getElementById("highScoreNums").innerHTML = highScore.toString();
 function startGame() {
   compButtonArray = [];
   let currentScore = 0;
+  document.getElementById("startGameBtn").innerHTML = "Start New Game";
   document.getElementById("currentScoreNums").innerHTML =
     currentScore.toString();
   btnContainer.classList.remove("allButtonsIncorrect");
@@ -137,6 +138,7 @@ function correctOrIncorrect(answerCorrect) {
     for (let i = 0; i < shockedFaceClass.length; i++) {
       shockedFaceClass[i].innerHTML = "😵";
       currentScore = 0;
+      document.getElementById("startGameBtn").innerHTML = "Play Again?";
     }
     setTimeout(function () {
       btnContainer.classList.remove("allButtonsIncorrect");
