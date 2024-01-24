@@ -1,40 +1,13 @@
-// Ignore Player Input when Computer is making moves!
-// This has been 'crashing' the game.
+// Time to set a limit on hint button input! Uh, I mean, 'clicks'
+// <button id="hintBtn">Hints Remaining: Three</button>
 
-// Logic: 'isPlayerTurn' equals 'false' when computer is moving, then true after computer is complete.
-// Also, IGNORE CLICKS!
+var counter = 0;
 
-// function ignorePlayerInput() {
-//   while(replayCompArray() || cpuSelects() === true;)
-//   if EventTarget === ${`"coolBtn", "dogBtn", "gumBtn", "boneBtn"`} {
-// preventDefault("click")
-//   } else {
-//     true;
-//   }
-// }
-
-if (isPlayerTurn === false) {
-  e.preventDefault;
-} else {
-  isPlayerTurn === true;
+function a() {
+  if (counter < 5) {
+    document.getElementById("a").innerHTML += "<input type='radio'>";
+    counter++;
+  } else {
+    document.getElementById("id").disabled = true;
+  }
 }
-
-isPlayerTurn = false;
-isPlayerTurn = true;
-
-
-document.getElementById("coolBtn").addEventListener("click", function (e) {
-  if (isPlayerTurn === false) {
-    e.preventDefault();
-  } else {
-    playerMoves("coolBtn");
-  }
-});
-
-document.querySelector("#coolBtn").addEventListener("click", function (e) {
-  if (isPlayerTurn === false) {
-    e.preventDefault();
-  } else {
-    console.log(sfx.cool.play());
-  }
-});
