@@ -180,6 +180,7 @@ function compareMoves() {
     playerSelections = [];
     setTimeout(replayCompArray, 1000);
   }
+  isPlayerTurn = true;
 }
 
 // Function to replay the computer's current array of moves:
@@ -312,7 +313,7 @@ function numberOfHints() {
     document.getElementById("hintBtn").innerHTML = "Umm, don't push your luck!";
   } else if (hintCounter === 5) {
     hintBtnColorWarnings.classList.add("hintPink1");
-    document.getElementById("hintBtn").innerHTML = "I mean, you may as well!";
+    document.getElementById("hintBtn").innerHTML = "I mean, you might as well!";
   } else {
     document.getElementById("hintBtn").innerHTML = "Dun dun duuuuuuun!";
     correctOrIncorrect(false);
