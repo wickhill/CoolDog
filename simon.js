@@ -1,3 +1,5 @@
+//
+
 // Startup Functions:
 
 const buttonEmojis = [
@@ -61,7 +63,11 @@ let compButtonArray = [];
 let currentScore = 0;
 let highScore = 0;
 let hintCounter = 0;
+
+//
+
 // I initialized / declared 'let isPlayerTurn = true;' because - for some reason - starting it off as 'false' was making it perform in unexpected ways. But this method, starting with it declared as 'true' works just fine! More testing is required, but so far, so good!
+
 let isPlayerTurn = true;
 const hintBtnColorWarnings = document.getElementById("hintBtn");
 
@@ -87,7 +93,9 @@ function startGame() {
   }, 300);
 }
 
-// Bulk Framework:
+//
+
+// Computer's moves framework:
 
 function cpuSelects() {
   isPlayerTurn = false;
@@ -116,6 +124,8 @@ function btnActivated(buttonId, isActive) {
   }
 }
 
+//
+
 // Function to indicate whether game will progress (buttons flash green) or end (buttons flash red).
 
 function correctOrIncorrect(answerCorrect) {
@@ -138,6 +148,10 @@ function correctOrIncorrect(answerCorrect) {
       document.getElementById("highScoreNums").innerHTML = highScore.toString();
     }
 
+    //
+
+    // This function here iterates over the '#btnContainer' button IDs and replaces their innerHTML values w/ this emoji. I love this function, tho I would've done this a bit more clumsily and manually, whereas this is far more elegant. ChatGPT suggested this one, whereas I'm more likely to replace them one at a time as I did in both the 'resetGame()' and 'startGame()' functions.
+
     sfx.gameOver.play();
     btnContainer.classList.add("allButtonsIncorrect");
     for (let i = 0; i < shockedFaceClass.length; i++) {
@@ -146,6 +160,9 @@ function correctOrIncorrect(answerCorrect) {
       document.getElementById("startGameBtn").innerHTML = "Play Again?";
     }
     setTimeout(function () {
+      //
+      // The 'commented-out' sections directly below were moved up to the actual 'resetGame()' function. Everything functions a bit better that way.
+      //
       // btnContainer.classList.remove("allButtonsIncorrect");
       // document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
       // document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
@@ -155,9 +172,13 @@ function correctOrIncorrect(answerCorrect) {
   }
 }
 
-// Player Moves and Storage:
+//
+
+// Player Moves and Storage just chillin':
 
 let playerSelections = [];
+
+//
 
 // Here, we're looking for IDs with 'Btn' in them, and then removing that specific part of the ID so as to get a 'buttonChoices' move, push it into the 'playerSelections' array, and then compare both the computer and the player arrays.
 
@@ -182,6 +203,8 @@ function compareMoves() {
   }
   isPlayerTurn = true;
 }
+
+//
 
 // Function to replay the computer's current array of moves:
 // Here's an Immediately Invoked Function Expression to time the moves, however this logic required assistance, as I wasn't able to reason it out on my own.
@@ -208,6 +231,7 @@ function endOfGame() {
   playerSelections = [];
   compButtonArray = [];
   currentScore = 0;
+  hintCounter = 6;
   document.getElementById("currentScoreNums").innerHTML = "🫠";
   document.getElementById("hintBtn").innerHTML = "😵‍💫";
   console.log(sfx.dog.play("segment"));
@@ -230,6 +254,8 @@ function resetGame() {
   console.log(sfx.success.play("segment"));
 }
 
+//
+
 // Event Listeners:
 
 document.getElementById("resetBtn").addEventListener("click", resetGame);
@@ -241,6 +267,8 @@ document.getElementById("hintBtn").addEventListener("click", function () {
 });
 
 document.getElementById("startGameBtn").addEventListener("click", startGame);
+
+//
 
 // Player input AND player-input-ignore i.e. preventDefault() features!
 
@@ -275,6 +303,8 @@ document.getElementById("boneBtn").addEventListener("click", function (e) {
     playerMoves("boneBtn");
   }
 });
+
+//
 
 // Sound Effects (SFX) here, as well as a player-input-ignore (preventDefault();) feature!
 
@@ -346,7 +376,3 @@ function numberOfHints() {
     return;
   }
 }
-
-// let gameStartInterval = setInterval(cpuSelects, 2000);
-
-// clearInterval(cpuSelects);
