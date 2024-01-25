@@ -146,11 +146,11 @@ function correctOrIncorrect(answerCorrect) {
       document.getElementById("startGameBtn").innerHTML = "Play Again?";
     }
     setTimeout(function () {
-      btnContainer.classList.remove("allButtonsIncorrect");
-      document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
-      document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
-      document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
-      document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
+      // btnContainer.classList.remove("allButtonsIncorrect");
+      // document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
+      // document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
+      // document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
+      // document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
     }, 7070);
   }
 }
@@ -184,7 +184,7 @@ function compareMoves() {
 }
 
 // Function to replay the computer's current array of moves:
-// Here's an Immediately Invoked Function Expression to time the moves, however this is not something I could've thought of on my own! Tho, there are still issues with it that I need to iron out...
+// Here's an Immediately Invoked Function Expression to time the moves, however this logic required assistance, as I wasn't able to reason it out on my own.
 
 function replayCompArray() {
   isPlayerTurn = false;
@@ -204,6 +204,11 @@ function replayCompArray() {
 }
 
 function resetGame() {
+        // btnContainer.classList.remove("allButtonsIncorrect");
+      // document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
+      // document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
+      // document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
+      // document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
   playerSelections = [];
   compButtonArray = [];
   currentScore = 0;
