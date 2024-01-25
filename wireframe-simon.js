@@ -1,24 +1,22 @@
 // function displayHintEmojis
 
+document.getElementById("hintBtn").addEventListener("click", function () {
+  hintCounter++;
+  setTimeout(function () {
+    document.getElementById("hintEmojiDisplay").innerHTML =
+      displayHintEmojis(compButtonArray);
+  }, 700);
+  document.getElementById("hintEmojiDisplay").innerHTML = "Hint: 🥸";
+  numberOfHints();
+});
 
-function displayHintEmojis(elementArray) {
-    let hintDisplayArray = [];
+//
+// The 'commented-out' sections directly below were moved up to the actual 'resetGame()' function. Everything functions a bit better that way.
+//
+// btnContainer.classList.remove("allButtonsIncorrect");
+// document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
+// document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
+// document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
+// document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
 
-for (let i = 0; i < elementArray.length; i++) {
-    if(elementArray[i] = "cool") {
-        hintDisplayArray.push("😎");
-    }
-    else if(elementArray[i] = "dog") {
-        hintDisplayArray.push("🐕");
-    }
-    else if(elementArray[i] = "gum") {
-        hintDisplayArray.push("🍬");
-    }
-    else if(elementArray[i] = "bone") {
-        hintDisplayArray.push("🦴");
-    } else {
-    break;
-}
-}
-console.log(hintDisplayArray);
-}
+setTimeout(function () {}, 7070);

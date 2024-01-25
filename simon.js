@@ -227,7 +227,6 @@ function replayCompArray() {
 }
 
 function endOfGame() {
-
   playerSelections = [];
   compButtonArray = [];
   currentScore = 0;
@@ -237,14 +236,14 @@ function endOfGame() {
   console.log(sfx.dog.play("segment"));
   hintBtnColorWarnings.removeAttribute("class");
   hintBtnColorWarnings.classList.add("hintRed3");
-  }
+}
 
 function resetGame() {
-        btnContainer.classList.remove("allButtonsIncorrect");
-      document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
-      document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
-      document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
-      document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
+  btnContainer.classList.remove("allButtonsIncorrect");
+  document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
+  document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
+  document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
+  document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
   playerSelections = [];
   compButtonArray = [];
   currentScore = 0;
@@ -261,23 +260,20 @@ function resetGame() {
 function displayHintEmojis(elementArray) {
   let hintDisplayArray = [];
 
-for (let i = 0; i < elementArray.length; i++) {
-  if(elementArray[i] === "cool") {
+  for (let i = 0; i < elementArray.length; i++) {
+    if (elementArray[i] === "cool") {
       hintDisplayArray.push("😎");
-  }
-  else if(elementArray[i] === "dog") {
+    } else if (elementArray[i] === "dog") {
       hintDisplayArray.push("🐕");
-  }
-  else if(elementArray[i] === "gum") {
+    } else if (elementArray[i] === "gum") {
       hintDisplayArray.push("🍬");
-  }
-  else if(elementArray[i] === "bone") {
+    } else if (elementArray[i] === "bone") {
       hintDisplayArray.push("🦴");
-  } else {
-  break;
-}
-}
-return hintDisplayArray;
+    } else {
+      break;
+    }
+  }
+  return hintDisplayArray;
 }
 
 //
@@ -296,7 +292,11 @@ document.getElementById("resetBtn").addEventListener("click", resetGame);
 
 document.getElementById("hintBtn").addEventListener("click", function () {
   hintCounter++;
-  console.log(displayHintEmojis(compButtonArray));
+  document.getElementById("hintEmojiDisplay").innerHTML =
+    displayHintEmojis(compButtonArray);
+  setTimeout(function () {
+    document.getElementById("hintEmojiDisplay").innerHTML = "Hint: 🥸";
+  }, 1200);
   numberOfHints();
 });
 
