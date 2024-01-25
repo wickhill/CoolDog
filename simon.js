@@ -171,7 +171,7 @@ function compareMoves() {
   for (let i = 0; i < playerSelections.length; i++) {
     if (playerSelections[i] !== compButtonArray[i]) {
       correctOrIncorrect(false);
-      resetGame();
+      endOfGame();
       return;
     }
   }
@@ -203,19 +203,31 @@ function replayCompArray() {
   setTimeout(cpuSelects, 1000 * compButtonArray.length);
 }
 
+function endOfGame() {
+
+  playerSelections = [];
+  compButtonArray = [];
+  currentScore = 0;
+  document.getElementById("currentScoreNums").innerHTML = "🫠";
+  document.getElementById("hintBtn").innerHTML = "😵‍💫";
+  console.log(sfx.dog.play("segment"));
+  hintBtnColorWarnings.removeAttribute("class");
+  hintBtnColorWarnings.classList.add("hintRed3");
+  }
+
 function resetGame() {
-        // btnContainer.classList.remove("allButtonsIncorrect");
-      // document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
-      // document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
-      // document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
-      // document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
+        btnContainer.classList.remove("allButtonsIncorrect");
+      document.getElementById("coolBtn").innerHTML = buttonEmojis[0].emoji;
+      document.getElementById("dogBtn").innerHTML = buttonEmojis[1].emoji;
+      document.getElementById("gumBtn").innerHTML = buttonEmojis[2].emoji;
+      document.getElementById("boneBtn").innerHTML = buttonEmojis[3].emoji;
   playerSelections = [];
   compButtonArray = [];
   currentScore = 0;
   document.getElementById("currentScoreNums").innerHTML = "0";
   document.getElementById("hintBtn").innerHTML = "Hints: 3";
   hintBtnColorWarnings.removeAttribute("class");
-  console.log(sfx.dog.play("segment"));
+  console.log(sfx.success.play("segment"));
 }
 
 // Event Listeners:
@@ -325,6 +337,8 @@ function numberOfHints() {
     hintBtnColorWarnings.classList.add("hintPink1");
     document.getElementById("hintBtn").innerHTML = "🙄";
   } else {
+    hintBtnColorWarnings.removeAttribute("class");
+    hintBtnColorWarnings.classList.add("hintRed3");
     document.getElementById("hintBtn").innerHTML = "😜";
     correctOrIncorrect(false);
     // resetGame();
