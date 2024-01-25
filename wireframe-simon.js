@@ -1,12 +1,24 @@
-// function endOfGame()
+// function displayHintEmojis
 
 
-function endOfGame() {
+function displayHintEmojis(elementArray) {
+    let hintDisplayArray = [];
 
-playerSelections = [];
-compButtonArray = [];
-currentScore = 0;
-document.getElementById("currentScoreNums").innerHTML = "🫠";
-document.getElementById("hintBtn").innerHTML = "☹️";
-console.log(sfx.dog.play("segment"));
+for (let i = 0; i < elementArray.length; i++) {
+    if(elementArray[i] = "cool") {
+        hintDisplayArray.push("😎");
+    }
+    else if(elementArray[i] = "dog") {
+        hintDisplayArray.push("🐕");
+    }
+    else if(elementArray[i] = "gum") {
+        hintDisplayArray.push("🍬");
+    }
+    else if(elementArray[i] = "bone") {
+        hintDisplayArray.push("🦴");
+    } else {
+    break;
+}
+}
+console.log(hintDisplayArray);
 }

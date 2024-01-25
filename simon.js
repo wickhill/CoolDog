@@ -103,7 +103,7 @@ function cpuSelects() {
   const randomIndex = Math.floor(Math.random() * buttonChoices.length);
   const randomChoice = buttonChoices[randomIndex];
   compButtonArray.push(randomChoice);
-  console.log(compButtonArray);
+  // console.log(compButtonArray);
 
   btnActivated(randomChoice + "Btn", true);
 
@@ -256,15 +256,53 @@ function resetGame() {
 
 //
 
+// displayHintEmojis function:
+
+function displayHintEmojis(elementArray) {
+  let hintDisplayArray = [];
+
+for (let i = 0; i < elementArray.length; i++) {
+  if(elementArray[i] === "cool") {
+      hintDisplayArray.push("😎");
+  }
+  else if(elementArray[i] === "dog") {
+      hintDisplayArray.push("🐕");
+  }
+  else if(elementArray[i] === "gum") {
+      hintDisplayArray.push("🍬");
+  }
+  else if(elementArray[i] === "bone") {
+      hintDisplayArray.push("🦴");
+  } else {
+  break;
+}
+}
+return hintDisplayArray;
+}
+
+//
+
 // Event Listeners:
+
+//
+
+// Reset Button:
 
 document.getElementById("resetBtn").addEventListener("click", resetGame);
 
+//
+
+// Hint Button (#hintBtn):
+
 document.getElementById("hintBtn").addEventListener("click", function () {
   hintCounter++;
-  console.log(compButtonArray);
+  console.log(displayHintEmojis(compButtonArray));
   numberOfHints();
 });
+
+//
+
+// Start Button:
 
 document.getElementById("startGameBtn").addEventListener("click", startGame);
 
