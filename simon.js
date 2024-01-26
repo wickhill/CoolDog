@@ -423,6 +423,7 @@ function numberOfHints() {
     hintBtnColorWarnings.classList.add("hintRed3");
     document.getElementById("hintBtn").innerHTML = "😜";
     document.getElementById("hintEmojiDisplay").innerHTML = "🥴🫣😭🥳";
+    console.log(sfx.not.play("segment"));
     correctOrIncorrect(false);
     // resetGame();
     // hintBtnColorWarnings.removeAttribute("class");
