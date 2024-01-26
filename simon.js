@@ -99,19 +99,25 @@ function startGame() {
 
 function cpuSelects() {
   isPlayerTurn = false;
+
   const buttonChoices = ["cool", "dog", "gum", "bone"];
   const randomIndex = Math.floor(Math.random() * buttonChoices.length);
   const randomChoice = buttonChoices[randomIndex];
   compButtonArray.push(randomChoice);
-  // console.log(compButtonArray);
+  console.log(compButtonArray);
 
   btnActivated(randomChoice + "Btn", true);
 
   setTimeout(function () {
     btnActivated(randomChoice + "Btn", false);
   }, 1000);
+
   isPlayerTurn = true;
 }
+
+//
+
+// Here's the Compound Selector in action, appending 'Active' to the '.coolBtn' (and other) IDs, and then all these together on the IDs #coolBtn'. Very neat technique!
 
 function btnActivated(buttonId, isActive) {
   const buttonBright = document.getElementById(buttonId);

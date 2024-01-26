@@ -217,3 +217,44 @@ body {
 #hintBtn.hintPink1 {
   background-color: rgb(238, 56, 238);
 }
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 1rem;
+  }
+
+  #h1Container {
+    font-size: 1rem;
+  }
+
+  #btnContainer {
+    font-size: 1rem;
+  }
+
+  .gameBtn {
+    font-size: 5rem;
+    flex: 0 0 25%;
+    margin: 5px 5px;
+    border-radius: 25px;
+    cursor: grab;
+    transition: background-color 0.2s ease;
+  }
+
+  #startHintRestartContainer {
+    font-size: 1rem;
+  }
+
+  #startGameBtn,
+  #resetBtn,
+  #hintBtn {
+    font-size: 1rem;
+  }
+
+  #hintEmojiDisplay {
+    font-size: 1rem;
+  }
+
+  #hintEmojis {
+    font-size: 1rem;
+  }
+}
