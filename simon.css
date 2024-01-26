@@ -236,6 +236,8 @@ body {
   }
 
   #btnContainer {
+    justify-content: start;
+    align-items: center;
     font-size: 1rem;
     width: 50%;
     height: 50%;
