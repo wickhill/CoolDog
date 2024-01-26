@@ -33,7 +33,7 @@ let sfx = {
   }),
   cool: new Howl({
     src: ["./sounds/dude.wav"],
-    volume: 0.6,
+    volume: 0.7,
     loop: false,
   }),
   dog: new Howl({
@@ -54,7 +54,7 @@ let sfx = {
     sprite: {
       segment: [0, 5000],
     },
-    volume: 0.3,
+    volume: 0.2,
     loop: false,
   }),
   not: new Howl({
@@ -62,7 +62,7 @@ let sfx = {
     sprite: {
       segment: [950, 3000],
     },
-    volume: 0.9,
+    volume: 0.5,
     loop: false,
   }),
 };
