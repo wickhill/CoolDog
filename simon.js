@@ -57,6 +57,14 @@ let sfx = {
     volume: 0.3,
     loop: false,
   }),
+  not: new Howl({
+    src: ["./sounds/i-think-not.mp3"],
+    sprite: {
+      segment: [0, 4000],
+    },
+    volume: 1.9,
+    loop: false,
+  }),
 };
 
 let compButtonArray = [];
@@ -239,7 +247,7 @@ function endOfGame() {
   hintCounter = 6;
   document.getElementById("currentScoreNums").innerHTML = "🫠";
   document.getElementById("hintBtn").innerHTML = "😵‍💫";
-  console.log(sfx.dog.play("segment"));
+  console.log(sfx.not.play("segment"));
   hintBtnColorWarnings.removeAttribute("class");
   hintBtnColorWarnings.classList.add("hintRed3");
 }
@@ -256,7 +264,7 @@ function resetGame() {
   document.getElementById("currentScoreNums").innerHTML = "0";
   document.getElementById("hintBtn").innerHTML = "Hints: 3";
   hintBtnColorWarnings.removeAttribute("class");
-  console.log(sfx.success.play("segment"));
+  console.log(sfx.dog.play("segment"));
 }
 
 //
