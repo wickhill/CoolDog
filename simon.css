@@ -238,11 +238,14 @@ body {
     /* font-size: 1rem; */
   }
 
+  /* I've added 'touch-action: manipulation;' to disable the 'double-tap' zoom feature on mobile devices. */
+
   .gameBtn {
     font-size: 4rem;
     flex: 1;
     margin: 2px 2px;
     border-radius: 25px;
+    touch-action: manipulation;
   }
 
   #startHintRestartContainer {
@@ -253,6 +256,7 @@ body {
   #resetBtn,
   #hintBtn {
     font-size: 15px;
+    touch-action: manipulation;
   }
 
   #hintEmojiDisplay {
