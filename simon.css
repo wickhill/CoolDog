@@ -242,7 +242,7 @@ body {
     width: 50%;
     height: 50%;
     margin: 25px 0px 45px 0px;
-    margin-left: 4rem;
+    margin-left: 2rem;
   }
 
   /* Added 'touch-action: manipulation;' to disable the 'double-tap' zoom feature on mobile devices. */
