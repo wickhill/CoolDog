@@ -41,7 +41,7 @@ let sfx = {
     sprite: {
       segment: [3325, 1120], // Starts file at 3325 ms, plays it for 1120 ms, i.e. from 3.325 seconds until 4.445 seconds.
     },
-    volume: 1.2,
+    volume: 1.3,
     loop: false,
   }),
   gum: new Howl({
@@ -54,7 +54,7 @@ let sfx = {
     sprite: {
       segment: [0, 5000],
     },
-    volume: 0.2,
+    volume: 0.3,
     loop: false,
   }),
   not: new Howl({
@@ -62,7 +62,7 @@ let sfx = {
     sprite: {
       segment: [950, 3000],
     },
-    volume: 0.5,
+    volume: 0.6,
     loop: false,
   }),
 };
