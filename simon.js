@@ -60,9 +60,9 @@ let sfx = {
   not: new Howl({
     src: ["./sounds/i-think-not.mp3"],
     sprite: {
-      segment: [0, 4000],
+      segment: [950, 3000],
     },
-    volume: 1.9,
+    volume: 0.9,
     loop: false,
   }),
 };
