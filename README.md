@@ -118,10 +118,10 @@ This is a browser-based JavaScript game, so you're already good to go.
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. No API Key needed, just follow this link to play! [https://example.com](https://wickhill.github.io/CoolDog/)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/wickhill/CoolDog.git
    ```
 3. Install NPM packages
    ```sh
@@ -189,9 +189,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Your Name - [@your_twitter](https://twitter.com/your_usernamwickstartere) - wickhill@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/your_username/repo_name](https://github.com/wickhill/CoolDog)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
