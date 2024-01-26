@@ -218,7 +218,7 @@ body {
   background-color: rgb(238, 56, 238);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   #pageContainerMobile {
     /* width: 100vw;
     height: 100vw; */
