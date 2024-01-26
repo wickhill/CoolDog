@@ -246,7 +246,7 @@ body {
   /* Added 'touch-action: manipulation;' to disable the 'double-tap' zoom feature on mobile devices. */
 
   .gameBtn {
-    font-size: 5rem;
+    font-size: 4rem;
     flex: 1;
     margin: 2px 2px;
     border-radius: 25px;
