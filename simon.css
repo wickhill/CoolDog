@@ -224,10 +224,14 @@ body {
   }
 
   #h1Container {
+    width: 100vw;
+    height: 100vw;
     font-size: 1rem;
   }
 
   #btnContainer {
+    width: 100vw;
+    height: 100vw;
     font-size: 1rem;
   }
 
@@ -241,6 +245,8 @@ body {
   }
 
   #startHintRestartContainer {
+    width: 100vw;
+    height: 100vw;
     font-size: 1rem;
   }
 
