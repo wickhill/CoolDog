@@ -222,6 +222,7 @@ body {
   #pageContainerMobile {
     /* width: 100vw;
     height: 100vw; */
+    display: inline-block;
   }
 
   body {
