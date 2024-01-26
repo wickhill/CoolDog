@@ -240,12 +240,13 @@ body {
     width: 50%;
     height: 50%;
     margin: 25px 0px 45px 0px;
+    margin-left: 4rem;
   }
 
   /* Added 'touch-action: manipulation;' to disable the 'double-tap' zoom feature on mobile devices. */
 
   .gameBtn {
-    font-size: 4rem;
+    font-size: 5rem;
     flex: 1;
     margin: 2px 2px;
     border-radius: 25px;
