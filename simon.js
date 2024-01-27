@@ -125,7 +125,7 @@ function cpuSelects() {
 
 //
 
-// Here's the Compound Selector in action, appending 'Active' to the '.coolBtn' (and other) IDs, and then all these together on the IDs #coolBtn'. Very neat technique!
+// Here's the Compound Selector in action, appending 'Active' to the '.coolBtn' (and other) IDs, and then all these together on the IDs #coolBtn', creating: '#coolBtn.coolBtnActive'. Very neat technique!
 
 function btnActivated(buttonId, isActive) {
   const buttonBright = document.getElementById(buttonId);
@@ -202,6 +202,8 @@ function playerMoves(buttonId) {
   compareMoves();
 }
 
+// compareMoves() checks to see if playerSelections.length matches compButtonArray. If not, then 'endOfGame()' runs. If indexes do match, then if checks to see if the lengths are the same, i.e. if the player has moved and can continue to 'replayCompArray'.
+
 function compareMoves() {
   for (let i = 0; i < playerSelections.length; i++) {
     if (playerSelections[i] !== compButtonArray[i]) {
@@ -220,7 +222,7 @@ function compareMoves() {
 
 //
 
-// Function to replay the computer's current array of moves:
+// Function to replay the computer's current array of moves and, after, select a new move:
 // Here's an Immediately Invoked Function Expression to time the moves, however this logic required assistance, as I wasn't able to reason it out on my own.
 
 function replayCompArray() {
@@ -240,6 +242,10 @@ function replayCompArray() {
   setTimeout(cpuSelects, 1000 * compButtonArray.length);
 }
 
+//
+
+// End of Game, pretty self explanitory.
+
 function endOfGame() {
   playerSelections = [];
   compButtonArray = [];
@@ -251,6 +257,8 @@ function endOfGame() {
   hintBtnColorWarnings.removeAttribute("class");
   hintBtnColorWarnings.classList.add("hintRed3");
 }
+
+// Some redundancies in this process, tho I always felt that it was due to scope.
 
 function resetGame() {
   btnContainer.classList.remove("allButtonsIncorrect");

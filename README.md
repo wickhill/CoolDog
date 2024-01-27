@@ -157,16 +157,6 @@ Biggest Challenge:
 
 - replayCompArray(), specifically staggering the replays. At one point, I had a couple 'setTimeout' timers set to 1000 milliseconds, which made it impossible to tell if the computer selected, for example, two 'cools' or 'dogs' in a row. Also, I had it set to 700 at one point, but that just had an 'uneven replay effect', and made the game confusing.
 
-Basically, this block:
-
-1. Calls and invokes an anonymous function w/ parameter 'index'
-2. That function calls a 'setTimeout' on it
-3. The 'const' 'buttonId' invokes and then declares 'true' and 'false' on the 'btnActivated()' function, which lights up the board pieces and then "turns them off" after a half second (i.e. 500milliseconds)
-4. Super cool part: lights up new pieces every 1 second (1000 \* index), but to stagger this, there's a half-second (i.e. 500millisecond) active and then inactive lighting of the buttons. Otherwise, if there were 'double-moves', you wouldn't be able to tell as the board would just 'light up' for 1 second.
-5. The segment ')(i);' immediately invokes the function after it's been declared. But most importantly, the (i) ensures that each iteration of the loop get a unique copy of the counter's current value. I.E. it's creating a new 'function scope' with each iteration of the loop.
-6. It's an asynchronous loop, meaning it runs independently from the main program, so making sure that it is independent is important.
-7. Also, this directly led me to tackling the issue where I had to 'disable', or 'preventDefault', click behavior for the player. Because while the 'replayCompArray' function was running, before setting up 'preventDefault()', the players could click board buttons and that would cause an immediate game over. Eventually, I want the players to be able to click the buttons and get sound, but it wasn't an MVP or Stretch goal.
-
 Biggest 'A-Ha' Moment:
 
 - Early in the game, realizing that I had to erase the player's array after each turn so that data can be pushed in again... it seems like a small issue now, but that was the biggest 'early hurdle' that, once I wrapped my head around it, it made me expand how I thought about how I was interacting with data.
