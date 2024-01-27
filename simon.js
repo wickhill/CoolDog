@@ -140,7 +140,7 @@ function btnActivated(buttonId, isActive) {
 
 //
 
-// Function to indicate whether game will progress (buttons flash green) or end (buttons flash red).
+// Function to indicate (visually) whether game will progress (buttons flash green) or end (buttons flash red).
 
 function correctOrIncorrect(answerCorrect) {
   isPlayerTurn = false;
@@ -202,7 +202,7 @@ function playerMoves(buttonId) {
   compareMoves();
 }
 
-// compareMoves() checks to see if playerSelections.length matches compButtonArray. If not, then 'endOfGame()' runs. If indexes do match, then if checks to see if the lengths are the same, i.e. if the player has moved and can continue to 'replayCompArray'.
+// compareMoves() is an 'if... if' statement, meaning that the 2nd part of the code will run even after the first 'if' condition is satisfied. This makes sure that the function will check to see if the array index values of playerSelections.length matches compButtonArray. If not, then 'endOfGame()' runs. If indexes do match, then if checks to see if the lengths are the same, i.e. if the player has moved and can continue to 'replayCompArray'.
 
 function compareMoves() {
   for (let i = 0; i < playerSelections.length; i++) {

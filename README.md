@@ -176,8 +176,6 @@ IIFE was discussed above. Compound Selectors are neither classes or IDs. It is c
 Shoutouts!
 
 - Evonte for the lead on Howler.js, his mention of this led me to to it and my game having sound
-- Josh for mentioning in a breakout room that he was doing 'Simon', which encouraged me to try it
-- Zachary for the breakout room study sessions and encouragement!
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
