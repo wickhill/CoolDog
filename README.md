@@ -148,13 +148,46 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-  - [ ] Chinese
-  - [ ] Spanish
+Basic Project Notes:
+
+- Met MVP Goals (or altered them if they didn't make sense as game progressed) except timer
+- Timer could've been Implemented, but perhaps quicker game/cpu movements make more sense.
+
+Biggest Challenge:
+
+- replayCompArray(), specifically staggering the replays. At one point, I had a couple 'setTimeout' timers set to 1000 milliseconds, which made it impossible to tell if the computer selected, for example, two 'cools' or 'dogs' in a row. Also, I had it set to 700 at one point, but that just had an 'uneven replay effect', and made the game confusing.
+
+Basically, this block:
+
+1. Calls and invokes an anonymous function w/ parameter 'index'
+2. That function calls a 'setTimeout' on it
+3. The 'const' 'buttonId' invokes and then declares 'true' and 'false' on the 'btnActivated()' function, which lights up the board pieces and then "turns them off" after a half second (i.e. 500milliseconds)
+4. Super cool part: lights up new pieces every 1 second (1000 \* index), but to stagger this, there's a half-second (i.e. 500millisecond) active and then inactive lighting of the buttons. Otherwise, if there were 'double-moves', you wouldn't be able to tell as the board would just 'light up' for 1 second.
+5. The segment ')(i);' immediately invokes the function after it's been declared. But most importantly, the (i) ensures that each iteration of the loop get a unique copy of the counter's current value. I.E. it's creating a new 'function scope' with each iteration of the loop.
+6. It's an asynchronous loop, meaning it runs independently from the main program, so making sure that it is independent is important.
+7. Also, this directly led me to tackling the issue where I had to 'disable', or 'preventDefault', click behavior for the player. Because while the 'replayCompArray' function was running, before setting up 'preventDefault()', the players could click board buttons and that would cause an immediate game over. Eventually, I want the players to be able to click the buttons and get sound, but it wasn't an MVP or Stretch goal.
+
+Biggest 'A-Ha' Moment:
+
+- Early in the game, realizing that I had to erase the player's array after each turn so that data can be pushed in again... it seems like a small issue now, but that was the biggest 'early hurdle' that, once I wrapped my head around it, it made me expand how I thought about how I was interacting with data.
+
+Unsolved Goals:
+
+- Leaderboard, however it's a browser-based game, so maybe unnecessary, but adding initials would've been fun
+- Mobile is still a work in progress
+
+Where I had help:
+
+- IIFE (Immediately Invoked Function Expression) for 'replayCompArray()'
+- Compound Selectors
+
+IIFE was discussed above. Compound Selectors are neither classes or IDs. It is created by combining two or more selectors - in my case it's an ID and a class - and I did this because I was having trouble 'overriding' some of the button ID styles that were 'default'. I just couldn't overwrite them when a move was successful, or when something went wrong and it was 'game-over', so this was the solution.
+
+Shoutouts!
+
+- Evonte for the lead on Howler.js, his mention of this led me to to it and my game having sound
+- Josh for mentioning in a breakout room that he was doing 'Simon', which encouraged me to try it
+- Zachary for the breakout room study sessions and encouragement!
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
