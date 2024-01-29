@@ -140,7 +140,7 @@ function btnActivated(buttonId, isActive) {
 
 //
 
-// Function to indicate (visually) whether game will progress (buttons flash green) or end (buttons flash red).
+// Function to indicate (visually) whether game will progress (buttons flash green) or end (buttons flash red). Also, there's a score 'ticker' that adds to the score, sound effects (sfx), and the declaration of the 'shockedFaceClass' constant.
 
 function correctOrIncorrect(answerCorrect) {
   isPlayerTurn = false;
@@ -258,7 +258,7 @@ function endOfGame() {
   hintBtnColorWarnings.classList.add("hintRed3");
 }
 
-// Some redundancies in this process, tho I always felt that it was due to scope.
+// Some redundancies in this process as it relates to 'endOfGame, however there are independent 'game over' conditions, and this 'resetGame' function was originally intended to have additional functionality. Perhaps some Easter egg type things. It does have a bit of an Easter egg 'bug', in that after 'Game Over', this face - 😵‍💫 - is displayed. However, by pressing 'resetGame', then this face - 😜 - from the 'numberOfHints' 'game over' function will overwrite it when the reset button is pressed. I like it!
 
 function resetGame() {
   btnContainer.classList.remove("allButtonsIncorrect");
