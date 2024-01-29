@@ -153,9 +153,19 @@ Basic Project Notes:
 - Met MVP Goals (or altered them if they didn't make sense as game progressed) except timer
 - Timer could've been Implemented, but perhaps quicker game/cpu movements make more sense.
 
-Biggest Challenge:
+Biggest Challenges:
 
 - replayCompArray(), specifically staggering the replays. At one point, I had a couple 'setTimeout' timers set to 1000 milliseconds, which made it impossible to tell if the computer selected, for example, two 'cools' or 'dogs' in a row. Also, I had it set to 700 at one point, but that just had an 'uneven replay effect', and made the game confusing.
+
+- 'isPlayerTurn = false;' in the 'replayCompArray()' function was of double inportance, as #1, players shouldn't be able to 'game over' during the computer replaying its moves, and #2, sometimes even when players selected the correct moves at the same moment as the computer, the game would 'game over'. That was interesting!
+
+- Howler.js: script tag had to go at the bottom of HTML, otherwise it didn't work. Also, Howler does not like .m4a sound files, and I had to convert one to .mp3 to get it to function (i.e. the 'Um, I think not!" sound).
+
+- Changing CSS layout from 'flex' to 'grid' was essential, as grid made it far easier to format the gaming board than flexbox. (Still, the 'h1' is in flexbox, as that looked fine.)
+
+- Responsive design for mobile is still a work in progress.
+
+- Building the project piece-by-piece meant that 'scope' became an issue I constantly had to be aware of and change, from time to time.
 
 Biggest 'A-Ha' Moment:
 
