@@ -118,7 +118,7 @@ This is a browser-based JavaScript game, so you're already good to go.
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. No API Key needed, just follow this link to play! [https://example.com](https://wickhill.github.io/CoolDog/)
+1. No API Key needed, just follow this link to play! [https://wickhill.github.io/CoolDog/](https://wickhill.github.io/CoolDog/)
 2. Clone the repo
    ```sh
    git clone https://github.com/wickhill/CoolDog.git
