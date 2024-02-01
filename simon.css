@@ -219,9 +219,23 @@ body {
 }
 
 @media only screen and (max-width: 500px) {
+  #startHintRestartContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+  }
+
+  #startGameBtn,
+  #resetBtn,
+  #hintBtn {
+    font-size: 1em;
+    padding: 10px;
+    width: 100%;
+    touch-action: manipulation;
+  }
+
   #pageContainerMobile {
-    /* width: 100vw;
-    height: 100vw; */
     display: inline-block;
   }
 
@@ -254,17 +268,6 @@ body {
     flex: 1;
     margin: 2px 2px;
     border-radius: 25px;
-    touch-action: manipulation;
-  }
-
-  #startHintRestartContainer {
-    font-size: 1rem;
-  }
-
-  #startGameBtn,
-  #resetBtn,
-  #hintBtn {
-    font-size: 15px;
     touch-action: manipulation;
   }
 
