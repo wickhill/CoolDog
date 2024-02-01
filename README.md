@@ -76,7 +76,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][https://i.imgur.com/BusTpzJ.jpg]](https://wickhill.github.io/CoolDog/)
+[![Product Name Screen Shot][/coolDog-screen-shot.jpg]](https://wickhill.github.io/CoolDog/)
 
 Hi, intrepid gamer! This here project, which I like to call "Cool Dog Gum Bone" is my take on the Hasbro classic "Simon". It's got sounds, lights, emojis, valley girls... What's not to love?! So, press the 'Start New Game' button, get some hints from the 'Hints' button (if you need 'em), and have a blast!
 
